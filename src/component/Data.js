@@ -12,13 +12,9 @@ export default function Data() {
 		if (input === '' || /\d/.test(input)) {
 			alert('Invalid input!')
 		} else {
-		const search =	getWord(input).then((data) => {
-				const searchedWordData = data
-				setSearchedWord(searchedWordData)
+			getWord(input).then((data) => {
+				setSearchedWord(data)
 			})
-					function updateSearchHistory(search, searchedWord) {
-				return [...search, searchedWord]
-			}
 		}
 	}
 
