@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import NavbarComp from './NavbarComp'
-import AccordionCamp from './AccordionComp'
 import { getWord } from '../api'
 import Footer from './Footer'
+import Main from './Main'
 
 export default function Data() {
 	const [input, setInput] = useState('')
@@ -13,7 +13,10 @@ export default function Data() {
 			alert('Invalid input!')
 		} else {
 			getWord(input).then((data) => {
-				setSearchedWord(data)
+				console.log(data)
+				setSearchedWord((prev) => {
+					return [...prev, data]
+				})
 			})
 		}
 	}
@@ -21,7 +24,7 @@ export default function Data() {
 	return (
 		<div>
 			<NavbarComp handleSearch={handleSearch} setInput={setInput} />
-			<AccordionCamp word={searchedWord} />
+			<Main word={searchedWord} />
 			<Footer />
 		</div>
 	)

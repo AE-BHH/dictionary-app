@@ -21,7 +21,7 @@ export default function NavbarComp({ handleSearch, setInput }) {
 						<Button
 							className='searchBtn'
 							onClick={handleSearch}
-							variant='primary'>
+							variant='light'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								width='50'

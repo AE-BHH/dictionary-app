@@ -5,14 +5,17 @@ export default function AccordionCamp({ word }) {
 	return (
 		<div className='main'>
 			{word.map((element, index) => {
+				console.log(`this is the index: ${index}`)
+				console.log(`Element: ${element[1]}`)
+
 				return (
 					<Accordion defaultActiveKey='0' key={index}>
 						<Accordion.Item eventKey='0'>
 							<Accordion.Header>
-								<h3>{element.word}</h3>
+								<h3>{element[0].word}</h3>
 							</Accordion.Header>
 							<Accordion.Body>
-								{element.word.length > 0 && (<h1>Word: {element.word}</h1>)}
+								{element.word.length > 0 && <h1>Word: {element.word}</h1>}
 								{element.phonetics[0].text.length > 0 && (
 									<h5>Phonetics: {element.phonetics[0].text}</h5>
 								)}
