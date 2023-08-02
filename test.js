@@ -1,4 +1,4 @@
-;[
+const data = [
 	{
 		word: 'hello',
 		phonetics: [

@@ -13,10 +13,8 @@ export default function Data() {
 			alert('Invalid input!')
 		} else {
 			getWord(input).then((data) => {
-				console.log(data)
-				setSearchedWord((prev) => {
-					return [...prev, data]
-				})
+				
+				setSearchedWord(data)
 			})
 		}
 	}
