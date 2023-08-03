@@ -1,25 +1,28 @@
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion'
+import { Container } from 'react-bootstrap'
 
 export default function AccordionCamp({ word }) {
 	console.log(word)
 	return (
 		<div className='main'>
 			{word.map((element, index) => {
-				console.log(element)
 				return (
 					<Accordion defaultActiveKey='0' key={index}>
 						<Accordion.Item eventKey='0'>
-							<Accordion.Header>
-								<h3>{element.word}</h3>
-							</Accordion.Header>
+							<Container fluid>
+								<Accordion.Header>
+									<h1>
+										{element.word}: {element.phonetic}
+									</h1>
+									{element.meanings.map((item, index) => (
+										<h2 key={index}>{item.partOfSpeech}</h2>
+									))}
+								</Accordion.Header>
+							</Container>
 							<Accordion.Body>
-								{element.word.length > 0 && <h1>Word: {element.word}</h1>}
-								<h5>Phonetics: {element.phonetic}</h5>
 								{element.meanings.map((item, index) => (
 									<div key={index}>
-										<h5>Part of speech: {item.partOfSpeech}</h5>
-
 										{item.definitions.map((el, i) => {
 											return (
 												<div key={i}>

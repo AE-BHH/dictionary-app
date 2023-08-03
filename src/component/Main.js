@@ -6,6 +6,7 @@ export default function Main({ word }) {
 	return (
 		<div>
 			{/* <Cards /> */}
+			{}
 			<AccordionComp word={word} />
 		</div>
 	)
