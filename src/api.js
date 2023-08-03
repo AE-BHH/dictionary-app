@@ -3,7 +3,7 @@ function getWord(input) {
 		.then((res) => res.json())
 
 		.then((res) => {
-			return res
+			return [res[0]]
 		})
 
 		.catch((err) => err)

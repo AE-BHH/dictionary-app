@@ -8,13 +8,13 @@
 	padding: 4%;
 }
 .name {
-	color: #f64c57;
+	color: white;
 	font-size: 60px;
 	font-weight: 900;
 	margin-left: auto;
 	margin-right: 200px;
 }
-.name:hover{
+.name:hover {
 	color: white;
 }
 @media (max-width: 1250px) {
@@ -42,12 +42,11 @@
 	bottom: 0%;
 	height: auto;
 }
-.icons{
-	color: #f64c57;
+.icons {
 	margin: 30px 50px;
 }
 
-.cards{
+.cards {
 	background-color: #790252;
 	min-width: 250px;
 	max-width: 300px;
@@ -55,5 +54,11 @@
 	color: white;
 	margin: auto;
 	margin-top: 100px;
-	
+}
+.definition {
+	margin: 10px;
+	background-color: #241468;
+	color: white;
+	min-width: 500px;
+	max-height: auto;
 }

@@ -1,45 +1,71 @@
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion'
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row, Card } from 'react-bootstrap'
 
 export default function AccordionCamp({ word }) {
-	console.log(word)
 	return (
 		<div className='main'>
 			{word.map((element, index) => {
 				return (
 					<Accordion defaultActiveKey='0' key={index}>
 						<Accordion.Item eventKey='0'>
-							<Container fluid>
-								<Accordion.Header>
-									<h1>
-										{element.word}: {element.phonetic}
-									</h1>
-									{element.meanings.map((item, index) => (
-										<h2 key={index}>{item.partOfSpeech}</h2>
-									))}
-								</Accordion.Header>
-							</Container>
-							<Accordion.Body>
-								{element.meanings.map((item, index) => (
-									<div key={index}>
-										{item.definitions.map((el, i) => {
-											return (
-												<div key={i}>
-													<h5>Definition: {el.definition} </h5>
-													<h5>Example: {el.example}</h5>
-												</div>
-											)
-										})}
+							<Accordion.Header className='accordion-header'>
+								<h1>
+									{element.word}: {element.phonetic}
+								</h1>
+							</Accordion.Header>
 
-										{item.synonyms.length > 0 && (
-											<h5>Synonyms: {item.synonyms.join(', ')}</h5>
-										)}
-										{item.antonyms.length > 0 && (
-											<h5>Antonyms: {item.antonyms}</h5>
-										)}
-									</div>
-								))}
+							<Accordion.Body>
+								{element.meanings.map((item, index) => {
+									return (
+										<Container key={index}>
+											<Row>
+												{item.definitions.map((el, itemIndex) => {
+													if (itemIndex <= 0) {
+														return (
+															<Col key={itemIndex}>
+																<Card>
+																	<Card.Body className='definition text-center'>
+																		<h1>{item.partOfSpeech}</h1>
+																		<Card.Text className='definition text-start'>
+																			<div>
+																				<span>
+																					<h2>Definition: </h2>
+																					<h5>{el.definition}</h5>
+																				</span>
+
+																				{item.synonyms.length > 0 && (
+																					<span>
+																						<h2>Synonyms:</h2>
+																						<h5>{item.synonyms.join(', ')}</h5>
+																					</span>
+																				)}
+																				{item.antonyms.length > 0 && (
+																					<span>
+																						<h2>Antonyms:</h2>
+																						<h5>{item.antonyms.join(', ')}</h5>
+																					</span>
+																				)}
+																				<h4>
+																					{el.hasOwnProperty('example') && (
+																						<span>
+																							<h2>Example: </h2>
+																							<h5>{el.example}</h5>
+																						</span>
+																					)}
+																				</h4>
+																			</div>
+																		</Card.Text>
+																	</Card.Body>
+																</Card>
+															</Col>
+														)
+													}
+												})}
+											</Row>
+										</Container>
+									)
+								})}
 							</Accordion.Body>
 						</Accordion.Item>
 					</Accordion>

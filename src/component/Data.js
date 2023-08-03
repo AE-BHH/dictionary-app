@@ -14,7 +14,6 @@ export default function Data() {
 		} else {
 			getWord(input).then((data) => {
 				setSearchedWord((prev) => {
-					console.log(prev)
 					return [...prev, ...data]
 				})
 			})
