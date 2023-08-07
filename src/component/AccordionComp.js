@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import { Col, Container, Row, Card } from 'react-bootstrap'
 
 export default function AccordionCamp({ word }) {
+	const reversedSearchArr = [...word].reverse()
+
 	return (
 		<div className='main'>
-			{word.map((element, index) => {
+			{reversedSearchArr.map((element, index) => {
 				return (
 					<Accordion defaultActiveKey='0' key={index}>
 						<Accordion.Item eventKey='0'>
