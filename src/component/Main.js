@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AccordionComp from './AccordionComp'
+import { Container, Row, Col } from 'react-bootstrap'
 import { getRandomWord, getWord } from '../api'
 import Cards from './Cards'
 
@@ -22,10 +23,20 @@ export default function Main({ word }) {
 	}, [])
 	return (
 		<div>
-			{word.length === 0 &&
-				wordMeaning.map((definition, index) => {
-					return <Cards randomWord={definition} key={index} />
-				})}
+			<Container>
+				<Row>
+					
+						{word.length === 0 &&
+							wordMeaning.map((definition, index) => {
+								return definition ? (
+									<Cards randomWord={definition} key={index} />
+								) : (
+									<></>
+								)
+							})}
+					
+				</Row>
+			</Container>
 			<AccordionComp word={word} />
 		</div>
 	)

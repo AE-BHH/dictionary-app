@@ -13,9 +13,10 @@ export default function Data() {
 	function handleSearch() {
 		if (input === '' || /\d/.test(input)) {
 			alert('Invalid input!')
-		} else if (Object.values(searchedWord).includes(input)) { // this else if doesn't work
+		} else if (searchedWord.includes(input)) { // this else if doesn't work
 			alert(`You already searched ${input}`)
 		} else {
+			
 			getWord(input).then((data) => {
 				setSearchedWord((prev) => {
 					return [...prev, ...data]
