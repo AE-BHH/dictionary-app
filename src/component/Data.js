@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import NavbarComp from './NavbarComp'
 import { getWord } from '../api'
 import Footer from './Footer'
@@ -11,20 +11,18 @@ export default function Data() {
 	const [wordHistory, setWordHistory] = useState([])
 	console.log(wordHistory)
 
-
 	function handleSearch() {
 		if (input === '' || /\d/.test(input)) {
 			alert('Invalid input!')
-		} else if (wordHistory.includes(input)) { 
+		} else if (wordHistory.includes(input)) {
 			alert(`You already searched "${input}"`)
 		} else {
-
 			getWord(input).then((data) => {
 				setSearchedWord((prev) => {
 					return [...prev, ...data]
 				})
 			})
-			setWordHistory(prev => {
+			setWordHistory((prev) => {
 				return [...prev, input]
 			})
 		}

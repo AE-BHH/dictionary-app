@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AccordionComp from './AccordionComp'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import { getRandomWord, getWord } from '../api'
 import Cards from './Cards'
 

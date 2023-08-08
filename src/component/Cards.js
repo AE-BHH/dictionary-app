@@ -7,7 +7,7 @@ export default function Cards({ randomWord }) {
 			<Card.Header className='cardHeader'>
 				<h3>{randomWord.word}</h3>
 			</Card.Header>
-			
+
 			<Card.Body className='cardBody'>
 				{randomWord.meanings.map((item, index) => {
 					if (index <= 0) {

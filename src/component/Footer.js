@@ -57,7 +57,6 @@ export default function Footer() {
 					</Col>
 
 					<Col className='d-flex justify-content-end '>
-						
 						<h5 className='footerText d-flex align-items-center'>
 							Alright reserved!
 						</h5>

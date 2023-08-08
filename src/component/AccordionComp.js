@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import { Col, Container, Row, Card } from 'react-bootstrap'
 
@@ -21,13 +21,15 @@ export default function AccordionCamp({ word }) {
 								{element.meanings.map((item, index) => {
 									return (
 										<Container key={index}>
-											<Row>
+											<Row style={{ margin: '10px' }}>
 												{item.definitions.map((el, itemIndex) => {
 													if (itemIndex <= 0) {
 														return (
 															<Col key={itemIndex}>
-																<Card>
-																	<Card.Body className='definition text-center'>
+																<Card style={{ borderRadius: '20px' }}>
+																	<Card.Body
+																		className='definition text-center'
+																		style={{ borderRadius: '20px' }}>
 																		<h1>{item.partOfSpeech}</h1>
 																		<Card.Text className='definition text-start'>
 																			<span>
@@ -39,7 +41,6 @@ export default function AccordionCamp({ word }) {
 																					<span>{el.definition}</span>
 																				</span>
 																				<br></br>
-
 																				{item.synonyms.length > 0 && (
 																					<span>
 																						<span className='accordion-word-definition'>
@@ -60,8 +61,9 @@ export default function AccordionCamp({ word }) {
 																						<span>
 																							{item.antonyms.join(', ')}
 																						</span>
-																					</span> 
-																				)} <br></br>
+																					</span>
+																				)}{' '}
+																				<br></br>
 																				<span>
 																					{el.hasOwnProperty('example') && (
 																						<span>
