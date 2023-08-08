@@ -35,6 +35,15 @@
 	height: auto;
 	margin-bottom: 100px;
 }
+
+.accordion-word-definition{
+	font-size: 20px;
+	font-weight: 800;
+}
+
+
+
+
 .footer {
 	position: fixed;
 	background-color: #241468;

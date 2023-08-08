@@ -6,7 +6,7 @@ export default function AccordionCamp({ word }) {
 	const reversedSearchArr = [...word].reverse()
 
 	return (
-		<div className='main'>
+		<span className='main'>
 			{reversedSearchArr.map((element, index) => {
 				return (
 					<Accordion defaultActiveKey='0' key={index}>
@@ -30,33 +30,50 @@ export default function AccordionCamp({ word }) {
 																	<Card.Body className='definition text-center'>
 																		<h1>{item.partOfSpeech}</h1>
 																		<Card.Text className='definition text-start'>
-																			<div>
+																			<span>
 																				<span>
-																					<h2>Definition: </h2>
-																					<h5>{el.definition}</h5>
+																					<span className='accordion-word-definition'>
+																						Definition:
+																					</span>{' '}
+																					<br></br>
+																					<span>{el.definition}</span>
 																				</span>
+																				<br></br>
 
 																				{item.synonyms.length > 0 && (
 																					<span>
-																						<h2>Synonyms:</h2>
-																						<h5>{item.synonyms.join(', ')}</h5>
+																						<span className='accordion-word-definition'>
+																							Synonyms:
+																						</span>
+																						<br></br>
+																						<span>
+																							{item.synonyms.join(', ')}
+																						</span>
 																					</span>
 																				)}
 																				{item.antonyms.length > 0 && (
 																					<span>
-																						<h2>Antonyms:</h2>
-																						<h5>{item.antonyms.join(', ')}</h5>
-																					</span>
-																				)}
-																				<h4>
+																						<span className='accordion-word-definition'>
+																							Antonyms:
+																						</span>
+																						<br></br>
+																						<span>
+																							{item.antonyms.join(', ')}
+																						</span>
+																					</span> 
+																				)} <br></br>
+																				<span>
 																					{el.hasOwnProperty('example') && (
 																						<span>
-																							<h2>Example: </h2>
-																							<h5>{el.example}</h5>
+																							<span className='accordion-word-definition'>
+																								Example:
+																							</span>
+																							<br></br>
+																							<span>{el.example}</span>
 																						</span>
 																					)}
-																				</h4>
-																			</div>
+																				</span>
+																			</span>
 																		</Card.Text>
 																	</Card.Body>
 																</Card>
@@ -73,6 +90,6 @@ export default function AccordionCamp({ word }) {
 					</Accordion>
 				)
 			})}
-		</div>
+		</span>
 	)
 }

@@ -7,20 +7,25 @@ import Main from './Main'
 export default function Data() {
 	const [input, setInput] = useState('')
 	const [searchedWord, setSearchedWord] = useState([])
-	console.log(typeof searchedWord)
 	console.log(searchedWord)
+	const [wordHistory, setWordHistory] = useState([])
+	console.log(wordHistory)
+
 
 	function handleSearch() {
 		if (input === '' || /\d/.test(input)) {
 			alert('Invalid input!')
-		} else if (searchedWord.includes(input)) { // this else if doesn't work
-			alert(`You already searched ${input}`)
+		} else if (wordHistory.includes(input)) { 
+			alert(`You already searched "${input}"`)
 		} else {
-			
+
 			getWord(input).then((data) => {
 				setSearchedWord((prev) => {
 					return [...prev, ...data]
 				})
+			})
+			setWordHistory(prev => {
+				return [...prev, input]
 			})
 		}
 	}

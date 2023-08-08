@@ -6,7 +6,6 @@ import Cards from './Cards'
 
 export default function Main({ word }) {
 	const [wordMeaning, setWordMeaning] = useState([])
-	console.log(word)
 	useEffect(() => {
 		async function fetchData() {
 			const randomWords = await getRandomWord()
@@ -24,17 +23,15 @@ export default function Main({ word }) {
 	return (
 		<div>
 			<Container>
-				<Row>
-					
-						{word.length === 0 &&
-							wordMeaning.map((definition, index) => {
-								return definition ? (
-									<Cards randomWord={definition} key={index} />
-								) : (
-									<></>
-								)
-							})}
-					
+				<Row sm={1} xl={2} className='g-1'>
+					{word.length === 0 &&
+						wordMeaning.map((definition, index) => {
+							return definition ? (
+								<Cards randomWord={definition} key={index} />
+							) : (
+								<></>
+							)
+						})}
 				</Row>
 			</Container>
 			<AccordionComp word={word} />
