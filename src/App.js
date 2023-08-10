@@ -1,12 +1,12 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import Data from './component/Data'
+import Index from './component/Index'
 
 function App() {
 	return (
 		<div className='App'>
-			<Data />
+			<Index />
 		</div>
 	)
 }

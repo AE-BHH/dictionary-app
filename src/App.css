@@ -6,12 +6,13 @@
 	height: 250px;
 	background-color: #241468;
 	padding: 4%;
+	margin-bottom: 130px;
 }
 .name {
-	color: white;
+	color: #f70776;
 	font-size: 60px;
 	font-weight: 900;
-	margin-left: auto;
+	margin-left: 0;
 	margin-right: 200px;
 }
 .name:hover {
@@ -47,19 +48,20 @@
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	width: 100%;
 	bottom: 0%;
-	margin-top: 200px;
+	margin-top: auto;
 	color: white;
 }
 .icons {
-	margin: 30px 50px;
+	margin: 20px 20px;
+	color: #f70776;
 }
 
 .definition {
 	margin: 10px;
-	background-color: #241468;
 	color: white;
 	min-width: 500px;
 	max-height: auto;
+	font-size: 30px;
 }
 
 .footerText {
@@ -72,20 +74,19 @@
 }
 
 .cardHeader {
-	background-color: white;
-	color: #241468;
+	background-color: #241468;
+	color: white;
 	margin: 0%;
 }
 
 .cards {
-	background-color: #241468;
+	background-color: #c3195d;
 	color: white;
 	min-width: 250px;
 	max-width: 300px;
 	min-height: 350px;
 	max-height: 350px;
 	margin: auto;
-	margin-top: 50px;
 }
 .cardBody {
 	max-width: 300px;

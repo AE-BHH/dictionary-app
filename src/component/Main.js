@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AccordionComp from './AccordionComp'
 import { Container, Row } from 'react-bootstrap'
-import { getRandomWord, getWord } from '../api'
+import { getRandomWord, generateRandomWordMeaning } from '../api'
 import Cards from './Cards'
 
 export default function Main({ word }) {
@@ -10,7 +10,7 @@ export default function Main({ word }) {
 		async function fetchData() {
 			const randomWords = await getRandomWord()
 			const randomDefinitions = await randomWords.map(async (el) => {
-				const definition = await getWord(el)
+				const definition = await generateRandomWordMeaning(el)
 				if (definition) {
 					return definition[0]
 				}

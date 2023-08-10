@@ -3,95 +3,113 @@ import Accordion from 'react-bootstrap/Accordion'
 import { Col, Container, Row, Card } from 'react-bootstrap'
 
 export default function AccordionCamp({ word }) {
-	const reversedSearchArr = [...word].reverse()
+	if (word.length < 0) {
+		alert('No result found!')
+	} else {
+		const reversedSearchArr = [...word].reverse()
 
-	return (
-		<span className='main'>
-			{reversedSearchArr.map((element, index) => {
-				return (
-					<Accordion defaultActiveKey='0' key={index}>
-						<Accordion.Item eventKey='0'>
-							<Accordion.Header className='accordion-header'>
-								<h1>
-									{element.word}: {element.phonetic}
-								</h1>
-							</Accordion.Header>
+		return (
+			<span className='main'>
+				{reversedSearchArr.map((element, index) => {
+					return (
+						<Accordion defaultActiveKey='0' key={index} className='accordion'>
+							<Accordion.Item eventKey='0'>
+								<Accordion.Header className='accordion-header'>
+									<h1>
+										{element.word}: {element.phonetic}
+									</h1>
+								</Accordion.Header>
 
-							<Accordion.Body>
-								{element.meanings.map((item, index) => {
-									return (
-										<Container key={index}>
-											<Row style={{ margin: '10px' }}>
-												{item.definitions.map((el, itemIndex) => {
-													if (itemIndex <= 0) {
-														return (
-															<Col key={itemIndex}>
-																<Card style={{ borderRadius: '20px' }}>
-																	<Card.Body
-																		className='definition text-center'
-																		style={{ borderRadius: '20px' }}>
-																		<h1>{item.partOfSpeech}</h1>
-																		<Card.Text className='definition text-start'>
-																			<span>
+								<Accordion.Body>
+									{element.meanings.map((item, index) => {
+										return (
+											<Container key={index}>
+												<Row style={{ margin: '10px' }}>
+													{item.definitions.map((el, itemIndex) => {
+														if (itemIndex <= 0) {
+															return (
+																<Col key={itemIndex}>
+																	<Card
+																		style={{
+																			borderRadius: '20px',
+																			backgroundColor: '#F70776',
+																			minWidth: '400px',
+																		}}>
+																		<Card.Body
+																			className='definition text-end'
+																			style={{ borderRadius: '20px' }}>
+																			<h5 style={{ fontStyle: 'italic' }}>
+																				{item.partOfSpeech}
+																			</h5>
+																			<Card.Text className='definitions text-start'>
 																				<span>
-																					<span className='accordion-word-definition'>
-																						Definition:
-																					</span>{' '}
+																					<span>
+																						<span
+																							style={{
+																								fontSize: '26px',
+																								fontWeight: 'bold',
+																							}}>
+																							{el.definition}
+																						</span>
+																					</span>
 																					<br></br>
-																					<span>{el.definition}</span>
-																				</span>
-																				<br></br>
-																				{item.synonyms.length > 0 && (
-																					<span>
-																						<span className='accordion-word-definition'>
-																							Synonyms:
-																						</span>
-																						<br></br>
+																					{item.synonyms.length > 0 && (
 																						<span>
-																							{item.synonyms.join(', ')}
-																						</span>
-																					</span>
-																				)}
-																				{item.antonyms.length > 0 && (
-																					<span>
-																						<span className='accordion-word-definition'>
-																							Antonyms:
-																						</span>
-																						<br></br>
-																						<span>
-																							{item.antonyms.join(', ')}
-																						</span>
-																					</span>
-																				)}{' '}
-																				<br></br>
-																				<span>
-																					{el.hasOwnProperty('example') && (
-																						<span>
-																							<span className='accordion-word-definition'>
-																								Example:
+																							<span
+																								style={{ fontStyle: 'italic' }}>
+																								Synonyms:
 																							</span>
-																							<br></br>
-																							<span>{el.example}</span>
+																							&nbsp;
+																							<span>
+																								{item.synonyms.join(', ')}
+																							</span>
 																						</span>
 																					)}
+																					{item.antonyms.length > 0 && (
+																						<span>
+																							<span
+																								style={{ fontStyle: 'italic' }}>
+																								Antonyms:
+																							</span>
+																							&nbsp;
+																							<span>
+																								{item.antonyms.join(', ')}
+																							</span>
+																						</span>
+																					)}{' '}
+																					<br></br>
+																					<span>
+																						{el.hasOwnProperty('example') && (
+																							<span>
+																								<span
+																									style={{
+																										fontStyle: 'italic',
+																									}}>
+																									Example:
+																								</span>
+																								&nbsp;
+																								<span>{el.example}</span>
+																							</span>
+																						)}
+																					</span>
 																				</span>
-																			</span>
-																		</Card.Text>
-																	</Card.Body>
-																</Card>
-															</Col>
-														)
-													}
-												})}
-											</Row>
-										</Container>
-									)
-								})}
-							</Accordion.Body>
-						</Accordion.Item>
-					</Accordion>
-				)
-			})}
-		</span>
-	)
+																			</Card.Text>
+																		</Card.Body>
+																	</Card>
+																</Col>
+															)
+														}
+													})}
+												</Row>
+											</Container>
+										)
+									})}
+								</Accordion.Body>
+							</Accordion.Item>
+						</Accordion>
+					)
+				})}
+			</span>
+		)
+	}
 }

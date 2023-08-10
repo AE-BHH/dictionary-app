@@ -4,12 +4,10 @@ import { getWord } from '../api'
 import Footer from './Footer'
 import Main from './Main'
 
-export default function Data() {
+export default function Index() {
 	const [input, setInput] = useState('')
 	const [searchedWord, setSearchedWord] = useState([])
-	console.log(searchedWord)
 	const [wordHistory, setWordHistory] = useState([])
-	console.log(wordHistory)
 
 	function handleSearch() {
 		if (input === '' || /\d/.test(input)) {
